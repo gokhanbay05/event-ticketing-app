@@ -1,0 +1,69 @@
+<nav class="bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center space-x-2">
+          <span class="text-xl font-bold text-primary-600">TicketApp</span>
+        </a>
+      </div>
+
+      <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
+        <a
+          href="/"
+          class="text-gray-900 hover:text-primary-600 px-3 py-2 text-sm font-medium"
+          >Home</a
+        >
+        <a
+          href="/events"
+          class="text-gray-500 hover:text-primary-600 px-3 py-2 text-sm font-medium"
+          >Events</a
+        >
+        <a
+          href="/venues"
+          class="text-gray-500 hover:text-primary-600 px-3 py-2 text-sm font-medium"
+          >Venues</a
+        >
+
+        <% if (typeof user !== 'undefined' && user) { %> <% if (user.role ===
+        'admin') { %>
+        <a
+          href="/events/new"
+          class="text-gray-500 hover:text-primary-600 px-3 py-2 text-sm font-medium"
+          >Add Event</a
+        >
+        <a
+          href="/venues/new"
+          class="text-gray-500 hover:text-primary-600 px-3 py-2 text-sm font-medium"
+          >Add Venue</a
+        >
+        <% } %>
+
+        <a
+          href="/auth/logout"
+          class="text-sm font-medium text-red-600 bg-red-100 hover:bg-red-200 px-4 py-2 rounded-md"
+        >
+          Sign Out
+        </a>
+        <a
+          href="/profile"
+          class="text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-md"
+        >
+          <%= user.username %>
+        </a>
+        <% } else { %>
+        <a
+          href="/auth/register"
+          class="text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-md shadow-sm"
+          >Register</a
+        >
+        <a
+          href="/auth/login"
+          class="text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-md shadow-sm"
+        >
+          Sign In
+        </a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

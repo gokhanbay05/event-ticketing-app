@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Kanye Live",
+    "text": "Experience the legendary performance of Kanye West in an unforgettable night filled with groundbreaking music, stunning visuals, and high-energy performances. Fans will get to hear both classic hits and new tracks from his latest album. The stage setup promises to be a spectacle that will leave everyone talking for weeks. Perfect for music lovers who want to witness history in the making.",
+    "date": "2026-04-11T20:00:00.000Z",
+    "price": 399.99,
+    "ticketCount": 5000,
+    "image": "/uploads/kanye.jpg",
+    "venueName": "Madison Square Garden"
+  },
+  {
+    "name": "Imagine Dragons Concert",
+    "text": "Join Imagine Dragons for a night of explosive music and mesmerizing visuals. Their signature blend of rock, pop, and electronic music will keep you dancing all night. Expect crowd favorites as well as tracks from their latest album. This concert is a must-attend for fans seeking an electrifying and emotional live music experience. Enjoy a show full of energy, passion, and unforgettable moments.",
+    "date": "2026-03-05T19:30:00.000Z",
+    "price": 299.99,
+    "ticketCount": 4500,
+    "image": "/uploads/imaginedragons.jpg",
+    "venueName": "Madison Square Garden"
+  },
+  {
+    "name": "Metallica Night",
+    "text": "Metallica returns with a night of intense metal, legendary riffs, and mind-blowing solos. Fans can expect to hear classics along with newer tracks from their latest album. The venue will be transformed into a world of metal energy with lights, visuals, and pyrotechnics. It’s an unforgettable night for die-hard fans who want to experience the full force of one of the greatest metal bands in history. Get ready to headbang all night long!",
+    "date": "2026-06-20T21:00:00.000Z",
+    "price": 349.99,
+    "ticketCount": 6000,
+    "image": "/uploads/metallica.jpg",
+    "venueName": "O2 Arena"
+  },
+  {
+    "name": "Coldplay Live",
+    "text": "Coldplay delivers a magical evening with uplifting anthems and mesmerizing light shows. Experience the emotional depth of their songs combined with a spectacular visual performance. From their classic hits to the newest tracks, the band promises a concert filled with joy, nostalgia, and unforgettable memories. Perfect for both new listeners and lifelong fans. Witness a night where music truly comes alive.",
+    "date": "2025-12-15T20:00:00.000Z",
+    "price": 399.99,
+    "ticketCount": 5000,
+    "image": "/uploads/coldplay.jpg",
+    "venueName": "O2 Arena"
+  },
+  {
+    "name": "Jazz Nights",
+    "text": "Enjoy an intimate evening of smooth jazz performed by top artists from around the world. Let the soothing melodies and soulful improvisations transport you to another world. The ambiance of the venue complements the music perfectly, offering a relaxed yet vibrant experience. Ideal for those who appreciate the artistry of live instruments and masterful performances. A night to unwind, relax, and soak in incredible talent.",
+    "date": "2026-01-22T19:00:00.000Z",
+    "price": 149.99,
+    "ticketCount": 3000,
+    "image": "/uploads/jazz.jpg",
+    "venueName": "AccorHotels Arena"
+  },
+  {
+    "name": "Stand-Up Comedy Night",
+    "text": "Laugh out loud with an incredible lineup of international comedians. The night promises hilarious stories, witty observations, and unforgettable punchlines. Perfect for anyone looking to unwind after a long week, this comedy show will keep you entertained from start to finish. The venue offers an intimate setting ensuring you don’t miss a single joke. Bring your friends and enjoy a night full of laughter and good vibes.",
+    "date": "2026-02-10T20:00:00.000Z",
+    "price": 89.99,
+    "ticketCount": 2000,
+    "image": "/uploads/comedy.jpg",
+    "venueName": "AccorHotels Arena"
+  },
+  {
+    "name": "Rock Festival 2026",
+    "text": "Three days of pure rock music featuring multiple legendary and upcoming bands. Fans will enjoy a festival atmosphere with food, drinks, merchandise, and unforgettable performances. The festival grounds are designed for comfort, safety, and maximum enjoyment. This is the ultimate experience for anyone passionate about rock music. Whether you are a casual listener or die-hard fan, this festival has something for everyone. Don’t miss out!",
+    "date": "2026-07-01T15:00:00.000Z",
+    "price": 499.99,
+    "ticketCount": 10000,
+    "image": "/uploads/rockfestival.jpg",
+    "venueName": "Mercedes-Benz Arena"
+  },
+  {
+    "name": "Electronic Dance Party",
+    "text": "Dance all night to the beats of world-renowned DJs in a venue designed for high-energy performances. Expect incredible light shows, immersive sound systems, and a crowd full of passionate dance lovers. This event is perfect for EDM enthusiasts and party-goers who crave an unforgettable night. Bring your friends and join a community that celebrates music, rhythm, and energy. Let the night take you on an electrifying journey of sound and lights.",
+    "date": "2026-05-18T22:00:00.000Z",
+    "price": 199.99,
+    "ticketCount": 4000,
+    "image": "/uploads/edm.jpg",
+    "venueName": "Mercedes-Benz Arena"
+  },
+  {
+    "name": "Shakespeare in the Park",
+    "text": "Experience classic Shakespeare plays in an enchanting outdoor setting. Enjoy the performances by talented actors under the open sky with nature as the backdrop. Each scene is brought to life with emotion, passion, and stunning visual staging. Perfect for theater enthusiasts and those seeking a cultural night out. Bring a blanket, relax, and immerse yourself in timeless stories that have captivated audiences for centuries.",
+    "date": "2025-11-12T18:00:00.000Z",
+    "price": 59.99,
+    "ticketCount": 1500,
+    "image": "/uploads/shakespeare.jpg",
+    "venueName": "Tokyo Dome"
+  },
+  {
+    "name": "Film Premiere Night",
+    "text": "Attend the exclusive premiere of a highly anticipated blockbuster movie. Walk the red carpet and witness the cast in person while enjoying a glamorous cinematic experience. The night will be filled with excitement, networking, and a first look at cinematic brilliance. Perfect for movie lovers and fans who want a memorable night in the world of film. Dress to impress and enjoy an evening where movies come alive beyond the screen.",
+    "date": "2026-03-28T19:00:00.000Z",
+    "price": 129.99,
+    "ticketCount": 2500,
+    "image": "/uploads/moviepremiere.jpg",
+    "venueName": "Tokyo Dome"
+  },
+  {
+    "name": "Sydney Symphony Orchestra",
+    "text": "A breathtaking evening with the Sydney Symphony Orchestra, performing classical masterpieces in a stunning architectural venue. Enjoy the harmonious melodies, talented soloists, and immersive acoustics that bring each composition to life. This is a perfect night out for music lovers who appreciate high-quality live performances. Whether you're a classical aficionado or a first-time attendee, this event promises to be a memorable cultural experience.",
+    "date": "2026-08-12T19:30:00.000Z",
+    "price": 199.99,
+    "ticketCount": 3000,
+    "image": "/uploads/symphony.jpg",
+    "venueName": "Sydney Opera House"
+  },
+  {
+    "name": "Broadway Musical Night",
+    "text": "Enjoy a spectacular Broadway musical in one of the most iconic opera houses in the world. Experience singing, dancing, and acting of the highest caliber, brought together in a thrilling story. Perfect for theater enthusiasts and families alike, this performance promises unforgettable memories. The combination of talent, visuals, and storytelling creates a magical night. Don’t miss the chance to see a live show like no other.",
+    "date": "2026-09-05T20:00:00.000Z",
+    "price": 299.99,
+    "ticketCount": 4000,
+    "image": "/uploads/broadway.jpg",
+    "venueName": "Sydney Opera House"
+  },
+  {
+    "name": "NBA All-Star Game",
+    "text": "Witness the excitement of the NBA All-Star Game in one of Los Angeles' premier stadiums. The night features the best basketball players showcasing their talent, skill, and athleticism. Expect electrifying dunks, thrilling plays, and an unforgettable atmosphere. Perfect for sports fans seeking a high-energy and action-packed evening. Bring your friends and enjoy an experience that celebrates the thrill of professional basketball.",
+    "date": "2026-02-20T19:00:00.000Z",
+    "price": 249.99,
+    "ticketCount": 18000,
+    "image": "/uploads/nba.jpg",
+    "venueName": "Staples Center"
+  },
+  {
+    "name": "Pop Concert Night",
+    "text": "Join top international pop stars for a night of chart-topping hits and dazzling performances. Expect vibrant costumes, engaging stage setups, and energetic crowds. Fans will be treated to both classic hits and new releases, ensuring an unforgettable evening. Perfect for young audiences and pop enthusiasts, this concert delivers an experience full of fun, excitement, and music. Don’t miss a night of pure entertainment and dance.",
+    "date": "2026-03-15T20:30:00.000Z",
+    "price": 179.99,
+    "ticketCount": 15000,
+    "image": "/uploads/popconcert.jpg",
+    "venueName": "Staples Center"
+  },
+  {
+    "name": "Wembley Football Final",
+    "text": "Experience the grand finale of the football season at Wembley Stadium. Witness world-class teams competing for glory in a packed venue with an unmatched atmosphere. Fans can enjoy cheering, fan activities, and a truly immersive sporting event. Perfect for football enthusiasts who want to feel the energy of live international competition. A thrilling night of passion, excitement, and unforgettable memories.",
+    "date": "2026-06-01T18:00:00.000Z",
+    "price": 129.99,
+    "ticketCount": 90000,
+    "image": "/uploads/football.jpg",
+    "venueName": "Wembley Stadium"
+  },
+  {
+    "name": "Rock Legends Concert",
+    "text": "Gather to see legendary rock bands perform timeless classics alongside new hits. Fans can expect an electrifying night filled with energy, impressive visuals, and engaging performances. Perfect for music lovers seeking nostalgia combined with live rock experience. Each act delivers a unique atmosphere, making this a must-attend event for enthusiasts. Enjoy food, merchandise, and a community of fellow rock fans in an iconic stadium setting.",
+    "date": "2026-07-18T20:00:00.000Z",
+    "price": 199.99,
+    "ticketCount": 50000,
+    "image": "/uploads/rocklegends.jpg",
+    "venueName": "Wembley Stadium"
+  }
+]

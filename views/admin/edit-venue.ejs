@@ -1,0 +1,108 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<body class="bg-gray-50">
+
+  <div class="py-12">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="p-6 sm:p-8">
+          <div class="pb-5 border-b border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900">
+              <%= title %>
+            </h2>
+            <p class="mt-2 text-sm text-gray-500">  
+              Update the details for this venue.
+            </p>
+          </div>
+
+          <form class="mt-6 space-y-6" method="post" action="/venues/edit/<%= venue._id %>">
+            
+            <!-- Venue Name -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">
+                Venue Name
+              </label>
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                  value="<%= venue.name %>"
+                />
+              </div>
+            </div>
+
+            <!-- Grid for Capacity and Location -->
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label for="capacity" class="block text-sm font-medium text-gray-700">
+                  Capacity
+                </label>
+                <div class="mt-1">
+                  <input
+                    type="number"
+                    name="capacity"
+                    id="capacity"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                    value="<%= venue.capacity %>"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="address" class="block text-sm font-medium text-gray-700">
+                  Location
+                </label>
+                <div class="mt-1">
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                    value="<%= venue.address %>"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Image URL -->
+            <div>
+              <label for="image" class="block text-sm font-medium text-gray-700">
+                Image URL
+              </label>
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="image"
+                  id="image"
+                  class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                  value="<%= venue.image %>"
+                />
+              </div>
+            </div>
+
+            <!-- Action Buttons with a top border -->
+            <div class="pt-6 border-t border-gray-200">
+              <div class="flex justify-end space-x-3">
+                <a href="/venues" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                  Cancel
+                </a>
+                <button
+                  type="submit"
+                  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                >
+                  Update Venue
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../partials/footer') %>
+</body>
+
+</html>

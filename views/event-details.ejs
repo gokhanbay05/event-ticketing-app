@@ -1,0 +1,103 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+<body class="bg-gray-50">
+
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="lg:grid lg:grid-cols-3 lg:gap-12">
+        <div class="lg:col-span-2">
+          <div class="relative w-full overflow-hidden rounded-lg shadow-lg" style="padding-top: 56.25%;">
+            <img class="absolute top-0 left-0 w-full h-full object-cover" src="<%= event.image %>" alt="<%= event.name %>">
+          </div>
+          <div class="mt-8">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900"><%= event.name %></h1>
+          </div>
+          <div class="mt-6 prose prose-lg text-gray-600">
+            <p><%= event.text %></p>
+          </div>
+        </div>
+
+        <div class="mt-10 lg:mt-0 lg:col-span-1">
+          <div class="bg-white rounded-lg shadow-lg p-6 sticky top-8">
+            
+            <div class="space-y-4 border-b border-gray-200 pb-4">
+              <div class="flex items-start">
+                <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                <div class="ml-3">
+                  <h4 class="text-sm font-semibold text-gray-900">Date & Time</h4>
+                  <p class="text-sm text-gray-600"><%= new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                  <p class="text-sm text-gray-600"><%= new Date(event.date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }) %></p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <svg class="flex-shrink-0 h-6 w-6 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <div class="ml-3">
+                  <h4 class="text-sm font-semibold text-gray-900">Location</h4>
+                  <p class="text-sm text-gray-600"><%= event.venueID.name %></p>
+                  <p class="text-sm text-gray-500"><%= event.venueID.address %></p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6">
+              <% if (new Date(event.date) < new Date()) { %>
+                <div class="text-center bg-gray-100 p-4 rounded-lg">
+                  <h4 class="font-semibold text-gray-800">This Event Has Ended</h4>
+                  <p class="text-sm text-gray-600">This event took place in the past.</p>
+                </div>
+              <% } else if (typeof user === 'undefined' || !user) { %>
+                <a href="/auth/login" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
+                  Sign In to Purchase
+                </a>
+                <p class="text-center text-xs text-gray-500 mt-2">You must be logged in to buy tickets.</p>
+              <% } else if (event.ticketCount > 0) { %>
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-medium text-gray-500">Ticket Price</p>
+                  <p class="text-2xl font-bold text-gray-900">$<%= event.price %></p>
+                </div>
+                <div class="mt-6">
+                  <button id="buy-ticket-btn" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
+                    Get Tickets
+                  </button>
+                  <p class="text-center text-sm text-gray-500 mt-2"><%= event.ticketCount %> tickets remaining</p>
+                </div>
+              <% } else { %>
+                <button class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-400 cursor-not-allowed" disabled>
+                  Sold Out
+                </button>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if (typeof user !== 'undefined' && user && event.ticketCount > 0) { %>
+    <div id="ticket-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full">
+        <h3 class="text-2xl font-bold text-gray-900">Purchase Tickets for</h3>
+        <p class="text-lg text-primary-600 mb-6"><%= event.name %></p>
+        
+        <form action="/events/purchase/<%= event._id %>" method="POST">
+          <div class="space-y-4">
+            <div>
+              <label for="quantity" class="block text-sm font-medium text-gray-700">How many tickets?</label>
+              <input type="number" id="quantity" name="quantity" min="1" max="<%= event.ticketCount %>" value="1" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm">
+            </div>
+            <div class="flex items-center justify-end">
+              <button type="button" id="close-modal-btn" class="text-sm font-medium text-gray-600 hover:text-gray-900 mr-4">Cancel</button>
+              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700">
+                Confirm Purchase
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  <% } %>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

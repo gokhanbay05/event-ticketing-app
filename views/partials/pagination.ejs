@@ -1,0 +1,45 @@
+<% if (totalPages > 1) { %>
+<div class="mb-16 mt-12 flex items-center justify-center space-x-2">
+  <% if (currentPage > 1) { %>
+  <a
+    href="<%= baseUrl %>?page=<%= currentPage - 1 %>"
+    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+  >
+    &laquo; Previous
+  </a>
+  <% } else { %>
+  <span
+    class="px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 rounded-md cursor-not-allowed"
+  >
+    &laquo; Previous
+  </span>
+  <% } %> <% for (let i = 1; i <= totalPages; i++) { %> <% if (i ===
+  currentPage) { %>
+  <span
+    class="px-4 py-2 text-sm font-medium text-white bg-primary-600 border border-primary-600 rounded-md z-10"
+  >
+    <%= i %>
+  </span>
+  <% } else { %>
+  <a
+    href="<%= baseUrl %>?page=<%= i %>"
+    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+  >
+    <%= i %>
+  </a>
+  <% } %> <% } %> <% if (currentPage < totalPages) { %>
+  <a
+    href="<%= baseUrl %>?page=<%= currentPage + 1 %>"
+    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+  >
+    Next &raquo;
+  </a>
+  <% } else { %>
+  <span
+    class="px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 rounded-md cursor-not-allowed"
+  >
+    Next &raquo;
+  </span>
+  <% } %>
+</div>
+<% } %>

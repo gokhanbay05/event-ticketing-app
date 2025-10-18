@@ -1,0 +1,80 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+<body class="bg-gray-50">
+
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center">
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <%= title %>
+        </h2>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+          Find the most popular venues for concerts, festivals, and special events.
+        </p>
+      </div>
+
+      <div class="mt-10 bg-white border border-gray-200 rounded-lg shadow-sm">
+        <ul role="list" class="divide-y divide-gray-200">
+
+          <% venues.forEach(venue => { %>
+            
+            <li class="p-4 sm:p-6 hover:bg-gray-50 transition-colors">
+              <div class="flex items-center space-x-4 sm:space-x-6">
+                
+                <div class="flex-shrink-0">
+                  <img class="h-24 w-24 sm:h-28 sm:w-28 object-cover rounded-md" src="<%= venue.image %>" alt="<%= venue.name %>">
+                </div>
+                
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-xl font-bold text-gray-900 truncate">
+                    <%= venue.name %>
+                  </h3>
+                  <div class="mt-2 flex flex-col sm:flex-row sm:items-center sm:space-x-5 text-sm text-gray-500">
+                    <p class="flex items-center">
+                      <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                      </svg>
+                      <span><%= venue.address %></span>
+                    </p>
+                    <p class="flex items-center mt-1 sm:mt-0">
+                      <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                         <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0110 11a5 5 0 01-1.5 3.67A6.97 6.97 0 007 16c0 .34.024.673.07 1h5.86zM6 16a7 7 0 00-5.93 4H2.07A8.963 8.963 0 0110 14c2.9 0 5.5.14 7.93 4h-4.04A7 7 0 006 16z" />
+                      </svg>
+                      <span><%= venue.capacity %> Person Capacity</span>
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="flex-shrink-0 ml-auto flex items-center space-x-2 sm:space-x-3">
+                  <% if (typeof user !== 'undefined' && user && user.role === 'admin') { %>
+                    <a href="/venues/edit/<%= venue._id %>" class="hidden sm:block text-sm font-medium text-gray-500 hover:text-primary-600">Edit</a>
+                    <a href="/venues/delete/<%= venue._id %>" class="hidden sm:block text-sm font-medium text-red-500 hover:text-red-700">Delete</a>
+                  <% } %>
+                  <a href="/venues/details/<%= venue._id %>" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                    View Events
+                  </a>
+                </div>
+
+              </div>
+            </li>
+
+          <% }) %>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+    <%- include('partials/pagination', { 
+      baseUrl: '/venues', 
+      currentPage: currentPage, 
+      totalPages: totalPages 
+    }) %>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

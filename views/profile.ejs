@@ -1,0 +1,80 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+<body class="bg-gray-50">
+  <div class="min-h-screen flex flex-col items-center pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl w-full">
+      
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-extrabold text-gray-900"><%= user.username %>'s Tickets</h1>
+        <p class="mt-2 text-sm text-gray-500">View your active and past event tickets below.</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 max-h-[70vh] overflow-y-auto">
+        <div class="space-y-4">
+          
+          <div>
+            <button data-toggle="accordion" data-target="active-tickets" class="w-full flex justify-between items-center text-left p-4 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors">
+              <span class="text-xl font-bold text-gray-800">Active Tickets (<%= activeTickets.length %>)</span>
+              <svg class="w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <div id="active-tickets" class="mt-2 space-y-4 px-2" style="display: block;"> <% if (activeTickets.length > 0) { %>
+                <% activeTickets.forEach(ticket => { %>
+                  <div class="bg-white p-4 rounded-lg shadow-sm border flex items-center space-x-4">
+                    <img src="<%= ticket.eventId.image %>" class="h-16 w-16 sm:h-20 sm:w-20 object-cover rounded-md flex-shrink-0">
+                    <div class="flex-1">
+                      <h3 class="font-bold text-primary-700"><%= ticket.eventId.name %></h3>
+                      <p class="text-sm text-gray-600"><%= new Date(ticket.eventId.date).toDateString() %></p>
+                      <p class="text-sm text-gray-500"><%= ticket.eventId.venueID.name %></p>
+                    </div>
+                    <div class="text-right">
+                      <p class="font-bold text-lg"><%= ticket.quantity %>x</p>
+                      <p class="text-sm text-gray-500">Tickets</p>
+                    </div>
+                  </div>
+                <% }) %>
+              <% } else { %>
+                <p class="px-4 py-2 text-gray-500">You have no active tickets.</p>
+              <% } %>
+            </div>
+          </div>
+
+          <div>
+            <button data-toggle="accordion" data-target="past-tickets" class="w-full flex justify-between items-center text-left p-4 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors">
+              <span class="text-xl font-bold text-gray-800">Past Tickets (<%= pastTickets.length %>)</span>
+              <svg class="w-6 h-6 transform transition-transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <div id="past-tickets" class="mt-2 space-y-4 px-2" style="display: none;"> <% if (pastTickets.length > 0) { %>
+                <% pastTickets.forEach(ticket => { %>
+                  <div class="bg-gray-100 p-4 rounded-lg flex items-center space-x-4 opacity-70">
+                    <img src="<%= ticket.eventId.image %>" class="h-16 w-16 sm:h-20 sm:w-20 object-cover rounded-md flex-shrink-0">
+                    <div class="flex-1">
+                      <h3 class="font-bold text-gray-700"><%= ticket.eventId.name %></h3>
+                      <p class="text-sm text-gray-600"><%= new Date(ticket.eventId.date).toDateString() %></p>
+                      <p class="text-sm text-gray-500"><%= ticket.eventId.venueID.name %></p>
+                    </div>
+                    <div class="text-right">
+                      <p class="font-bold text-lg text-gray-800"><%= ticket.quantity %>x</p>
+                      <p class="text-sm text-gray-500">Tickets</p>
+                    </div>
+                  </div>
+                <% }) %>
+              <% } else { %>
+                <p class="px-4 py-2 text-gray-500">You have no past tickets.</p>
+              <% } %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

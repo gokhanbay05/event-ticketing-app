@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Madison Square Garden",
+    "address": "New York, USA",
+    "capacity": 20000,
+    "image": "/uploads/msg.jpg"
+  },
+  {
+    "name": "O2 Arena",
+    "address": "London, UK",
+    "capacity": 20000,
+    "image": "/uploads/o2arena.jpg"
+  },
+  {
+    "name": "AccorHotels Arena",
+    "address": "Paris, France",
+    "capacity": 20000,
+    "image": "/uploads/accorhotels.jpg"
+  },
+  {
+    "name": "Mercedes-Benz Arena",
+    "address": "Berlin, Germany",
+    "capacity": 17000,
+    "image": "/uploads/mercedes.jpg"
+  },
+  {
+    "name": "Tokyo Dome",
+    "address": "Tokyo, Japan",
+    "capacity": 55000,
+    "image": "/uploads/tokyodome.jpg"
+  },
+  {
+    "name": "Sydney Opera House",
+    "address": "Sydney, Australia",
+    "capacity": 5733,
+    "image": "/uploads/sydneyopera.jpg"
+  },
+  {
+    "name": "Staples Center",
+    "address": "Los Angeles, USA",
+    "capacity": 21000,
+    "image": "/uploads/staples.jpg"
+  },
+  {
+    "name": "Wembley Stadium",
+    "address": "London, UK",
+    "capacity": 90000,
+    "image": "/uploads/wembley.jpg"
+  }
+]

@@ -1,0 +1,153 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<body class="bg-gray-50">
+
+  <div class="py-12">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="p-6 sm:p-8">
+          <div class="pb-5 border-b border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900">
+              <%= title %>
+            </h2>
+            <p class="mt-2 text-sm text-gray-500">
+              Update the details for this event.
+            </p>
+          </div>
+
+          <% if (typeof error !== 'undefined' && error) { %>
+            <div class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <strong class="font-bold">Error:</strong>
+              <span class="block sm:inline"><%= error %></span>
+            </div>
+          <% } %>
+
+          <form class="mt-6 space-y-6" method="post" action="/events/edit/<%= event._id %>">
+            
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Event Name</label>
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                  value="<%= typeof event !== 'undefined' ? event.name : '' %>"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label for="text" class="block text-sm font-medium text-gray-700">Description</label>
+              <div class="mt-1">
+                <textarea
+                  id="text"
+                  name="text"
+                  rows="4"
+                  class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                  required
+                ><%= typeof event !== 'undefined' ? event.text : '' %></textarea>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label for="date" class="block text-sm font-medium text-gray-700">Date and Time</label>
+                <div class="mt-1">
+                  <input
+                    type="datetime-local"
+                    name="date"
+                    id="date"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                    value="<%= typeof event !== 'undefined' ? event.date : '' %>"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="price" class="block text-sm font-medium text-gray-700">Price ($)</label>
+                <div class="mt-1">
+                  <input
+                    type="number"
+                    name="price"
+                    id="price"
+                    step="0.01"
+                    min="0"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                    value="<%= typeof event !== 'undefined' ? event.price : '' %>"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label for="venueID" class="block text-sm font-medium text-gray-700">Venue</label>
+                <div class="mt-1">
+                  <select id="venueID" name="venueID" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md" required>
+                    <option value="" disabled <%= typeof event === 'undefined' ? 'selected' : '' %>>Select a venue</option>
+                    <% venues.forEach(venue => { %>
+                      <option value="<%= venue._id %>" <%= (typeof event !== 'undefined' && event.venueID == venue._id) ? 'selected' : '' %>>
+                        <%= venue.name %>
+                      </option>
+                    <% }) %>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="ticketCount" class="block text-sm font-medium text-gray-700">Available Tickets</label>
+                <div class="mt-1">
+                  <input
+                    type="number"
+                    name="ticketCount"
+                    id="ticketCount"
+                    min="0"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                    placeholder="e.g., 500"
+                    value="<%= typeof event !== 'undefined' ? event.ticketCount : 0 %>"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="image" class="block text-sm font-medium text-gray-700">Image URL</label>
+              <div class="mt-1">
+                <input
+                  type="text"
+                  name="image"
+                  id="image"
+                  class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                  value="<%= typeof event !== 'undefined' ? event.image : '' %>"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-200">
+              <div class="flex justify-end space-x-3">
+                <a href="/events" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                  Cancel
+                </a>
+                <button
+                  type="submit"
+                  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                >
+                  Update Event
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../partials/footer') %>
+</body>
+
+</html>
